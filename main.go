@@ -1,9 +1,7 @@
 package main
 
 import (
-	"fmt"
 	"govue/auth"
-	"govue/campaign"
 	"govue/handler"
 	"govue/helper"
 	"govue/user"
@@ -26,12 +24,12 @@ func main() {
 	}
 
 	userRepository := user.NewRepository(db)
-	campaignRepository := campaign.NewRepository(db)
+	// campaignRepository := campaign.NewRepository(db)
 	userService := user.NewService(userRepository)
 	authService := auth.NewService()
 
-	campaigns, err := campaignRepository.FindByUserID(5)
-	fmt.Println(len(campaigns))
+	// campaigns, err := campaignRepository.FindByUserID(5)
+	// fmt.Println(len(campaigns))
 
 	userHandler := handler.NewUserHandler(userService, authService)
 
